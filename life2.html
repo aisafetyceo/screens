@@ -1,0 +1,148 @@
+<html>
+
+<head>
+</head>
+
+<body id="dad">
+    <div style="display: flex;">
+        <div style="display: block">
+            <p id="number" style="margin: 0 !important;"></p>
+            <canvas id="camera"></canvas>
+        </div>
+        <div style="display: block;">
+            <div id="c">
+            </div>
+            <canvas id="canvas"></canvas>
+        </div>
+    </div>
+</body>
+
+<script>
+//TAXES: It forces an investigation on your taxes where u live what you buy eat homeless homefull as a real function of your sin number
+    abc = "abcdefghijklmnopqrstuvwxyz "
+    action = "toronto ninety ninety" //enumerate + sum + string
+    y = 0, n = 1, event = 0, title = []
+    camera.height = 600, camera.width = 600
+    lights = camera.getContext("2d")
+
+    for (var c = 0; c < action.length; c++) {
+        title.push(27 - (abc.indexOf(action[c]) + 1))
+    }
+
+    console.log(title)
+    setInterval(function () {
+        lights.clearRect(0, 0, camera.width, camera.height)
+        document.getElementById("number").innerHTML = n
+        for (i = 0; i <= 36000; i++) {
+            if (y > 36000) {
+                y = 0
+            }
+            x = 75 * Math.cos(75 * (y * (Math.PI / 999999 * Math.PI / Math.PI))) + i
+            z = 75 * Math.cos(n * (y + (Math.PI / 999999 * Math.PI / Math.PI))) + 100
+            window.Hx = x, window.Hz = z
+            lights.fillRect(x, z, 1, 1)
+            y++
+        }
+        n++
+    }, 1)
+
+    function hey() {
+        abc = "abcdefghijklmnopqrstuvwxyz ", q = "hi", a = "", yy = 0, nn = 1
+        one = { 1: [27], 2: [38], 3: [100], 4: [41], 5: [68], 6: [116], 7: [254], 8: [278], 9: [286], 10: [313], 11: [380], 12: [12], 13: [13], 14: [14], 15: [15], 16: [16], 17: [17], 18: [18], 19: [19], 20: [20], 21: [21], 22: [22], 23: [23], 24: [24], 25: [25], 26: [26], 27: [27] }
+        canvas.height = 300, canvas.width = 300
+        ctx_canvas = canvas.getContext("2d")
+        setInterval(function () {
+            ctx_canvas.clearRect(0, 0, canvas.width, canvas.height)
+            if (nn > 27) {
+                nn = 1
+            }
+            u = one[nn][0]
+            document.getElementById("c").innerHTML = u
+
+            for (i = 0; i < 200; i++) {
+                if (yy > 150) {
+                    yy = 0
+                }
+                x = 75 * Math.cos(75 * (yy * (Math.PI / 999))) + 100
+                z = 75 * Math.cos(u * (yy + (Math.PI / 999))) + 100
+
+                ctx_canvas.fillRect(x, z, 1, 1)
+                yy++
+            }
+            nn++
+        }, 750)
+        c.innerHTML = a
+    }
+    hey()
+
+
+    document.getElementById("dad").addEventListener("click", hi)
+    function hi() {
+        a = "hi", chimp = 0, psi = 1
+        for (var i = 0; i < a.length; i++) {
+            chimp += abc.indexOf(a[i]) + 1
+        }
+
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        //createBuffer(numOfChannels, length, sampleRate)
+        myArrayBuffer = audioCtx.createBuffer(
+            2,
+            audioCtx.sampleRate,
+            audioCtx.sampleRate,
+        );
+
+        console.log(myArrayBuffer)
+
+        function sic(psi) {
+            if (psi < -1) {
+                psi = -0.5
+            }
+            Hz = Hx * Hz
+            
+            psi = (psi - 0.03)
+            return psi
+        }
+
+        for (let channel = 0; channel < myArrayBuffer.numberOfChannels; channel++) {
+            nowBuffering = myArrayBuffer.getChannelData(channel);
+            for (let i = 0; i < myArrayBuffer.length; i++) {
+                psi = sic(psi)
+                nowBuffering[i] = psi;
+            }
+        }
+
+        source = audioCtx.createBufferSource();
+        source.buffer = myArrayBuffer;
+        source.connect(audioCtx.destination);
+        source.start();
+    }
+
+    var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
+    var SpeechGrammarList = SpeechGrammarList || window.webkitSpeechGrammarList
+    var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
+
+
+    var recognition = new SpeechRecognition();
+    recognition.continuous = false;
+    recognition.lang = 'en-US';
+
+    var bg = document.querySelector('html');
+    var hints = document.querySelector('.hints');
+
+    document.body.onclick = function () {
+        recognition.start();
+    }
+
+    recognition.onresult = function (event) {
+        var color = event.results[0][0].transcript;
+        bg.style.backgroundColor = color;
+        window.said = color;
+        hi()
+    }
+
+    recognition.onspeechend = function () {
+        recognition.stop();
+    }
+</script>
+
+</html>
